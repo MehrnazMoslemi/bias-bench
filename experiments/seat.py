@@ -42,7 +42,7 @@ parser.add_argument(
     action="store",
     type=str,
     default="bert-base-uncased",
-    choices=["bert-base-uncased", "albert-base-v2", "roberta-base", "gpt2"],
+    choices=["bert-base-uncased", "albert-base-v2", "roberta-base", "gpt2","C:/Users/Mehrnaz/Downloads/roberta_tagged_model_mlm"],
     help="HuggingFace model name or path (e.g., bert-base-uncased). Checkpoint from which a "
     "model is instantiated.",
 )
@@ -51,7 +51,7 @@ parser.add_argument(
     action="store",
     type=str,
     default="BertModel",
-    choices=["BertModel", "AlbertModel", "RobertaModel", "GPT2Model"],
+    choices=["BertModel", "AlbertModel", "RobertaModel", "GPT2Model","mydebiased"],
     help="Model to evalute (e.g., BertModel). Typically, these correspond to a HuggingFace "
     "class.",
 )
