@@ -141,7 +141,7 @@ if __name__ == "__main__":
     else:
         model.eval()
 
-    tokenizer = transformers.AutoTokenizer.from_pretrained(args.model_name_or_path)
+    tokenizer = RobertaTokenizer.from_pretrained('roberta-base')
 
     # Use self-debiasing name.
     bias_type = args.bias_type
