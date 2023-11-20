@@ -151,7 +151,17 @@ if __name__ == "__main__":
     )
     results = runner()
     print(results)
+    results_dir = os.path.join(args.persistent_dir, "results", "seat")
+    file_path = os.path.join(results_dir, f"{experiment_id}.json")
 
-    os.makedirs(f"{args.persistent_dir}/results/seat", exist_ok=True)
-    with open(f"{args.persistent_dir}/results/seat/{experiment_id}.json", "w") as f:
-        json.dump(results, f)
+    # Ensure the directory exists
+    os.makedirs(results_dir, exist_ok=True)
+
+    # Write results to file
+    with open(file_path, "w") as f:
+    # Write results to the file
+        pass
+
+    #os.makedirs(f"{args.persistent_dir}/results/seat", exist_ok=True)
+    #with open(f"{args.persistent_dir}/results/seat/{experiment_id}.json", "w") as f:
+        #json.dump(results, f)
