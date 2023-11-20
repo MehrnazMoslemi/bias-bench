@@ -45,6 +45,7 @@ parser.add_argument(
         "SelfDebiasBertForMaskedLM",
         "SelfDebiasAlbertForMaskedLM",
         "SelfDebiasRobertaForMaskedLM",
+        'C:/Users/Mehrnaz/Downloads/roberta_tagged_model_mlm',
     ],
     help="Model to evalute (e.g., SentenceDebiasBertForMaskedLM).",
 )
