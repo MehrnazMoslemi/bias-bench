@@ -17,9 +17,9 @@ class AlbertModel:
         return transformers.AlbertModel.from_pretrained(model_name_or_path)
 
 
-class RobertaModel:
-    def __new__(self, model_name_or_path):
-        return transformers.RobertaModel.from_pretrained(model_name_or_path)
+#class RobertaModel:
+#    def __new__(self, model_name_or_path):
+        
 
 
 class GPT2Model:
@@ -514,5 +514,5 @@ class SelfDebiasGPT2LMHeadModel:
         return model
 class mydebiased:
     def __new__(self, model_name_or_path):
-        model = RobertaForMaskedLM.from_pretrained(model_name_or_path)
-        return model
+        return transformers.RobertaModel.from_pretrained(model_name_or_path)
+
