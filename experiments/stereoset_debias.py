@@ -45,7 +45,7 @@ parser.add_argument(
         "SelfDebiasBertForMaskedLM",
         "SelfDebiasAlbertForMaskedLM",
         "SelfDebiasRobertaForMaskedLM",
-        'mydebiased',
+        "mydebiased",
     ],
     help="Model to evalute (e.g., SentenceDebiasBertForMaskedLM).",
 )
