@@ -512,3 +512,8 @@ class SelfDebiasGPT2LMHeadModel:
     def __new__(self, model_name_or_path):
         model = GPT2Wrapper(model_name_or_path, use_cuda=False)
         return model
+class mydebiased:
+    def __new__(self):
+        model_path='C:/Users/Mehrnaz/Downloads/roberta_tagged_model_mlm'
+        model = RobertaForMaskedLM.from_pretrained(model_path)
+        return model
