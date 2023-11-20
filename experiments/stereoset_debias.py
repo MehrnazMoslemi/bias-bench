@@ -152,7 +152,7 @@ if __name__ == "__main__":
         intrasentence_model=model,
         tokenizer=tokenizer,
         input_file=f"{args.persistent_dir}/data/stereoset/test.json",
-        model_name_or_path='roberta-base',
+        model_name_or_path=args.model_name_or_path,
         batch_size=args.batch_size,
         is_generative=_is_generative(args.model),
         is_self_debias=_is_self_debias(args.model),
