@@ -17,9 +17,9 @@ class AlbertModel:
         return transformers.AlbertModel.from_pretrained(model_name_or_path)
 
 
-#class RobertaModel:
-#    def __new__(self, model_name_or_path):
-        
+ class RobertaModel:
+    def __new__(self, model_name_or_path):
+        return transformers.RobertaModel.from_pretrained(model_name_or_path)
 
 
 class GPT2Model:
