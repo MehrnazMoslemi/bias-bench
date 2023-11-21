@@ -161,7 +161,8 @@ class StereoSetRunner:
 
                 output = output[mask_idxs]
 
-            output = output[mask_idxs.unsqueeze(-1)].view(-1, output.size(-1))
+            output = output[mask_idxs.unsqueeze(-1).expand(-1, -1, output.size(-1))].view(-1, output.size(-1))
+
             output = output.gather(1, next_token.unsqueeze(0)).diag()
 
             for idx, item in enumerate(output):
