@@ -163,7 +163,9 @@ class StereoSetRunner:
 
             
             # Assuming mask_idxs has more than two dimensions
-            output = output[mask_idxs.unsqueeze(-1).expand_as(output)].view(-1, output.size(-1))
+            #output = output[mask_idxs.unsqueeze(-1).expand_as(output)].view(-1, output.size(-1))
+            # Assuming mask_idxs has three dimensions
+            output = output[mask_idxs.unsqueeze(-1).expand(-1, -1, output.size(-1))].view(-1, output.size(-1))
 
             output = output.gather(1, next_token.unsqueeze(0)).diag()
 
