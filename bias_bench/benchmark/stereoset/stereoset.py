@@ -161,7 +161,9 @@ class StereoSetRunner:
 
                 output = output[mask_idxs]
 
-            output = output.index_select(1, next_token).diag()
+            output = output[mask_idxs.unsqueeze(-1)].view(-1, output.size(-1))
+            output = output.gather(1, next_token.unsqueeze(0)).diag()
+
             for idx, item in enumerate(output):
                 word_probabilities[sentence_id[idx]].append(item.item())
 
