@@ -205,7 +205,7 @@ class _GenericDataset(_SentenceDebiasDataset):
     def load_examples(self):
         examples = []
 
-        with open(self._data_file, "r") as f:
+        with open(self._data_file, "r", encoding='utf-8') as f:
             lines = f.readlines()
 
         data = []
