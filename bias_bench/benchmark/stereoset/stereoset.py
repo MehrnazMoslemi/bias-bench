@@ -163,9 +163,14 @@ class StereoSetRunner:
 
             
 
+            # Assuming mask_idxs has three dimensions
+            print("Shape of mask_idxs:", mask_idxs.shape)
+            print("Shape of output:", output.shape)
+
             expanded_mask_idxs = mask_idxs.unsqueeze(-1).expand_as(output)
-            expanded_mask_idxs = expanded_mask_idxs.unsqueeze(-1).expand_as(output)
-            output = output[expanded_mask_idxs].view(-1, output.size(-1))
+            indices = torch.where(expanded_mask_idxs)
+            output = output[indices].view(-1, output.size(-1))
+
 
 
             output = output.gather(1, next_token.unsqueeze(0)).diag()
