@@ -161,27 +161,16 @@ class StereoSetRunner:
 
                 output = output[mask_idxs]
 
+                print("Shape of mask_idxs:", mask_idxs.shape)
+                print("Shape of output before:", output.shape)
+                mask_idxs = mask_idxs.squeeze(-1)
+
+                mask_idxs = mask_idxs.to(output.device)
+                output = output.masked_select(mask_idxs.unsqueeze(0)).view(-1)
+                print("Shape of output after:", output.shape)
+                next_token = next_token.unsqueeze(0)
+
             
-
-            # Assuming mask_idxs has three dimensions
-        print("Shape of mask_idxs:", mask_idxs.shape)
-        print("Shape of output before:", output.shape)
-
-# Convert mask_idxs to a mask with shape (batch_size, seq_len) by squeezing the last dimension
-            mask_idxs = mask_idxs.squeeze(-1)
-
-# Ensure that the mask has the same device as the output
-            mask_idxs = mask_idxs.to(output.device)
-
-# Apply the mask to the output tensor
-            output = output.masked_select(mask_idxs.unsqueeze(0)).view(-1)
-
-            print("Shape of output after:", output.shape)
-
-# Assuming next_token has two dimensions
-            next_token = next_token.unsqueeze(0)
-
-# Gather the probabilities for the next tokens
             output = output.gather(1, next_token).diag()
 
             for idx, item in enumerate(output):
