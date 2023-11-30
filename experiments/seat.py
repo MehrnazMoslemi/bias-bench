@@ -42,7 +42,7 @@ parser.add_argument(
     action="store",
     type=str,
     default="bert-base-uncased",
-    choices=["bert-base-uncased", "albert-base-v2", "roberta-base", "gpt2","C:/Users/Mehrnaz/Downloads/RoBERTa_tagged_model_AB_mlm"],
+    choices=["bert-base-uncased", "albert-base-v2", "roberta-base", "gpt2","C:/Users/Mehrnaz/Downloads/BERT_tagged_model_mlm"],
     help="HuggingFace model name or path (e.g., bert-base-uncased). Checkpoint from which a "
     "model is instantiated.",
 )
