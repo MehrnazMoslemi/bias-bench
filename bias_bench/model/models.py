@@ -514,5 +514,5 @@ class SelfDebiasGPT2LMHeadModel:
         return model
 class mydebiased:
     def __new__(self, model_name_or_path):
-        return transformers.AlbertModel.from_pretrained(model_name_or_path)
+        return transformers.RobertaModel.from_pretrained(model_name_or_path)
 
