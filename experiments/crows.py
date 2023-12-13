@@ -27,6 +27,7 @@ parser.add_argument(
         "AlbertForMaskedLM",
         "RobertaForMaskedLM",
         "GPT2LMHeadModel",
+        "mydebiased",
     ],
     help="Model to evalute (e.g., BertForMaskedLM). Typically, these correspond to a HuggingFace "
     "class.",
